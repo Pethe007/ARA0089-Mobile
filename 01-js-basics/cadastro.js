@@ -1,14 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View, Image, TextInput, Date, TouchableOpacity, Alert, Switch} from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, Alert} from 'react-native';
 
 
 export default function App() {
 
   const[nome,setNome] = useState('');
-  const[data,setData] = useState('');
-  const[genero,setGenero] = useState('');
-  const toggleSwitch = () => setGenero((previousState) => !previousState);
+  const[email,setEmail] = useState('');
+  const[senha,setSenha] = useState('');
 
   const cadastro = () =>{
     //alert(nome);
@@ -32,18 +31,17 @@ export default function App() {
       ></TextInput>
 
       <TextInput 
-        placeholder='Data de Nascimento' 
+        placeholder='Digite seu Email' 
         style={styles.input}
-        onChangeText={Text=>setData(Text)}
+        onChangeText={text=>setEmail(text)}
       ></TextInput>
 
-      <Switch
-       trackColor={{ false: "#FFC0CB", true: "#81b0ff" }}
-       thumbColor={genero ? "#81b0ff": "ffc0cb"}
-       onValueChange={toggleSwitch}
-       value={genero}
-
-      />
+      <TextInput 
+        placeholder='Digite uma Senha' 
+        style={styles.input}
+        onChangeText={text=>setSenha(text)}
+        secureTextEntry={true}
+      ></TextInput>
 
       <TouchableOpacity
         style={styles.botao}
