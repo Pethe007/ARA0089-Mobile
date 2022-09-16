@@ -1,64 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { StyleSheet, Text, View, Image, TextInput, Date, TouchableOpacity, Alert, Switch} from 'react-native';
+import { StyleSheet, Text, View,Image} from 'react-native';
+import foto from './assets/adedonha.png';
 
-
-export default function App() {
-
-  const[nome,setNome] = useState('');
-  const[data,setData] = useState('');
-  const[genero,setGenero] = useState('');
-  const toggleSwitch = () => setGenero((previousState) => !previousState);
-
-  const cadastro = () =>{
-    //alert(nome);
-    //alert(email);
-    //alert(senha);
-    //fazer chamada no back-end para  cadastro.
-  }
+export default function App(){
 
   return (
   <>
     <View style={styles.container}>
-      <Image source={require('./assets/bill.png')} 
-      style={styles.foto}
-      
-      ></Image>
+      <Image source={foto} defaultSource={foto} style={styles.foto}></Image>
+      <Text style={styles.botaoText}>Joego</Text>
 
-      <TextInput 
-        placeholder='Digite seu Nome' 
-        style={styles.input}
-        onChangeText={text=>setNome(text)}
-      ></TextInput>
-
-      <TextInput 
-        placeholder='Data de Nascimento' 
-        style={styles.input}
-        onChangeText={Text=>setData(Text)}
-      ></TextInput>
-
-      <Switch
-       trackColor={{ false: "#FFC0CB", true: "#81b0ff" }}
-       thumbColor={genero ? "#81b0ff": "ffc0cb"}
-       onValueChange={toggleSwitch}
-       value={genero}
-
-      />
-
-      <TouchableOpacity
-        style={styles.botao}
-        onPress={()=> cadastro()}
-      >
-        <Text style={styles.botaoText}
-        >Cadastrar
-        </Text>
-      </TouchableOpacity>
-
-      
-      
     </View>
 
-    </>
+  </>
   );
 }
 
@@ -74,7 +27,7 @@ const styles = StyleSheet.create({
   foto: {
     width:150,
     height:150,
-    borderRadius: 100,
+   
   },
 
   input: {
